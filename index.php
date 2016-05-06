@@ -13,6 +13,7 @@
     
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="msapplication-TileColor" content="#0d47a1">
+    <meta name="theme-color" content="#0d47a1">
     
     <style type="text/css">
         
