@@ -38,7 +38,7 @@
     <md-toolbar layout="row" class="md-toolbar-tools md-whiteframe-z2" style="padding-left: 50px;">
         <h2 ng-bind="results.MyName"></h2>
         <span flex></span>
-        <md-button class="md-icon-button" aria-label="More" href="mailto:{{ results.myEmail }}" target="_blank" ng-click="Enter('email')">
+        <md-button class="md-icon-button" aria-label="More" ng-href="mailto:{{ results.myEmail }}" target="_blank" ng-click="Enter('email')">
           <md-icon md-font-set="material-icons">email</md-icon>
         </md-button>
     </md-toolbar>
@@ -55,7 +55,7 @@
                     <div ng-repeat="s in results.social" flex  layout-align="center center" layout="column">
                         <div flex></div>
                         <div class="preview-glyphs">
-                            <md-button href="{{ s.href }}" target="_blank"  ng-click="EnterSocial(s.name)">
+                            <md-button ng-href="{{ s.href }}" target="_blank"  ng-click="EnterSocial(s.name)">
                                 <md-icon md-svg-src="{{ s.icon }}" aria-label="{{ s.name }}" style="width: 40px; height: 40px;"></md-icon>
                             </md-button>
                         </div>
@@ -84,10 +84,10 @@
                     <md-list>
                         <md-list-item ng-repeat="ex in results.experiences">
                             <div class="md-list-item-text">
-                                <div class="md-title">{{ ex.entity }} – {{ ex.company }}</div>
+                                <div class="md-title" ng-bind="ex.entity + ' - ' + ex.company"></div>
                                 <div class="md-subhead" ng-bind="ex.date"></div>
                                 <p ng-bind="ex.description"></p>
-                                <p ng-if="ex.description != ''"><strong>Tecnologias:</strong> {{ ex.description }}</p>
+                                <p ng-if="ex.description != ''"><strong>Tecnologias:</strong> <span ng-bind="ex.technologies"></span></p>
                             </div>
                             <md-divider ng-if="!$last"></md-divider>
                         </md-list-item>
@@ -105,7 +105,7 @@
                     <md-list>
                         <md-list-item class="md-3-line" ng-repeat="ed in results.education">
                             <div class="md-list-item-text">
-                                <div class="md-title">{{ ed.subject }} – {{ ed.company }}</div>
+                                <div class="md-title" ng-bind="ed.subject + ' - ' + ed.company"></div>
                                 <div class="md-subhead" ng-bind="ed.date"></div>
                             </div>
                             <md-divider ng-if="!$last"></md-divider>
@@ -137,7 +137,7 @@
 
     <md-fab-speed-dial md-direction="up" class=" md-scale md-fab-bottom-right ">
         <md-fab-trigger>
-            <md-button aria-label="Download" class="md-fab md-warn" href="{{ results.download }}" target="_blank"  ng-click="Enter('Download')">
+            <md-button aria-label="Download" class="md-fab md-warn" ng-href="{{results.download}}" target="_blank"  ng-click="Enter('Download')">
                 <md-icon md-font-set="material-icons">file_download</md-icon>
             </md-button>
         </md-fab-trigger>
