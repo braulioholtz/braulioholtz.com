@@ -2,53 +2,56 @@
 <html lang="pt" ng-app="BraulioApp" ng-controller="BraulioController" >
 
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="msapplication-TileColor" content="#0d47a1">
-    <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0-rc4/angular-material.min.css">
+    <meta charset="UTF-8">
     <title ng-bind="results.MyName"></title>
+    <meta name="description" content="{{ results.searchDescription }}">
+    <meta name="keywords" content="{{ results.searchKeywords }}">
+    
+    <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0-rc4/angular-material.min.css">
     <link href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="msapplication-TileColor" content="#0d47a1">
+    
     <style type="text/css">
-        md-card {
-            background: #FFF;
-            margin: 15px;
-        }
         
-        md-toolbar {
-            padding-left: 100px;
-        }
         
-        md-toolbar h2 {
-            color: #FFF;
-            margin-left: 100px;
-        }
         [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
-          display: none !important;
+            display: none !important;
         }
+        
+        md-content { padding: 0 30px; }
+        md-card { background: #FFF; margin: 15px; }
+        md-toolbar h1 { color: #FFF; padding-left: 28px; }
+        md-card-content md-icon { width: 40px; height: 40px; }
+        
         .preview-scale {
-        color: #888;
-        font-size: 12px;
-        margin-top: 24px; }
+            color: #888;
+            font-size: 12px;
+            margin-top: 20px; 
+        }
+        
+        
     </style>
 </head>
 
 <body layout="column" layout-fill ng-cloak>
 
-    <md-toolbar layout="row" class="md-toolbar-tools md-whiteframe-z2" style="padding-left: 50px;">
-        <h2 ng-bind="results.MyName"></h2>
+    <md-toolbar layout="row" class="md-toolbar-tools md-whiteframe-z2">
+        <h1 ng-bind="results.MyName"></h1>
         <span flex></span>
         <md-button class="md-icon-button" aria-label="More" ng-href="mailto:{{ results.myEmail }}" target="_blank" ng-click="Enter('email')">
           <md-icon md-font-set="material-icons">email</md-icon>
         </md-button>
     </md-toolbar>
 
-    <md-content flex style="padding: 0 30px;">
+    <md-content flex>
         <div flex-xs="100">
             <md-card>
                 <md-card-title>
                     <md-card-title-text>
-                        <span class="md-headline"><md-icon  md-font-set="material-icons">collections</md-icon> Social</span>
+                        <h2 class="md-headline"><md-icon  md-font-set="material-icons">collections</md-icon> Social</h2>
                     </md-card-title-text>
                 </md-card-title>
                 <md-card-content  layout="row">
@@ -56,7 +59,7 @@
                         <div flex></div>
                         <div class="preview-glyphs">
                             <md-button ng-href="{{ s.href }}" target="_blank"  ng-click="EnterSocial(s.name)">
-                                <md-icon md-svg-src="{{ s.icon }}" aria-label="{{ s.name }}" style="width: 40px; height: 40px;"></md-icon>
+                                <md-icon md-svg-src="{{ s.icon }}" aria-label="{{ s.name }}"></md-icon>
                             </md-button>
                         </div>
                         <div class="preview-scale" ng-bind="s.name"></div>
@@ -67,7 +70,7 @@
             <md-card>
                 <md-card-title>
                     <md-card-title-text>
-                        <span class="md-headline"><md-icon  md-font-set="material-icons">build</md-icon> Habilidades e Competências</span>
+                        <h2 class="md-headline"><md-icon  md-font-set="material-icons">build</md-icon> Habilidades e Competências</h2>
                     </md-card-title-text>
                 </md-card-title>
                 <md-card-content  ng-bind-html="results.myDescription">
@@ -77,7 +80,7 @@
             <md-card>
                 <md-card-title>
                     <md-card-title-text>
-                        <span class="md-headline"><md-icon  md-font-set="material-icons">work</md-icon> Experiências</span>
+                        <h2 class="md-headline"><md-icon  md-font-set="material-icons">work</md-icon> Experiências</h2>
                     </md-card-title-text>
                 </md-card-title>
                 <md-card-content>
@@ -98,7 +101,7 @@
             <md-card>
                 <md-card-title>
                     <md-card-title-text>
-                        <span class="md-headline"><md-icon  md-font-set="material-icons">local_library</md-icon> Formação</span>
+                        <h2 class="md-headline"><md-icon  md-font-set="material-icons">local_library</md-icon> Formação</h2>
                     </md-card-title-text>
                 </md-card-title>
                 <md-card-content>
@@ -117,7 +120,7 @@
             <md-card>
                 <md-card-title>
                     <md-card-title-text>
-                        <span class="md-headline"><md-icon md-font-set="material-icons">translate</md-icon> Idiomas</span>
+                        <h2 class="md-headline"><md-icon md-font-set="material-icons">translate</md-icon> Idiomas</h2>
                     </md-card-title-text>
                 </md-card-title>
                 <md-card-content>
